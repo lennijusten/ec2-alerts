@@ -73,10 +73,11 @@ def lambda_handler(event, context):
                     "Instance Details:",
                     f"- Instance Name: {instance_name}",
                     f"- Instance ID: {instance_id}",
-                    f"- Current Runtime: {"%.2f" % runtime_hrs} hours",
+                    f"- Current Runtime: {'%.2f' % runtime_hrs} hours",
                     f"- Region: {instance['Placement']['AvailabilityZone']}",
                     f"- Instance Type: {instance['InstanceType']}",
-                    f"- Launch Time: {launch_time_str}"]
+                    f"- Launch Time: {launch_time_str}",
+                    f"- User Email: {owner_email if owner_email else 'N/A'}"]
                 all_instance_warnings.append("\n".join(instance_warning))
 
                 if owner_email:
