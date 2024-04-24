@@ -18,7 +18,7 @@ When setting up the Lambda function, you need to ensure that the role used to ex
   ]
 }
 ```
-The `<sender-arn-code>` should be replaced with the 12-digit ARN code from the sender email in SES. You can find this by going to SES → Identities → Select the sender email and copy the code from, for example, arn:aws:ses:us-east-1:<sender_arn-code>:identity/sender_email_at_email.org. This permission allows the sender to send emails to any verified identities in SES, provided the sender has also verified their own email. 
+The `<sender-arn-code>` should be replaced with the 12-digit ARN code from the sender email in SES. You can find this by going to SES → Identities → Select the sender email and copy the code from, for example, `arn:aws:ses:us-east-1:<sender_arn-code>:identity/sender_email_at_email.org`. This permission allows the sender to send emails to any verified identities in SES, provided the sender has also verified their own email. 
 
 ## User Subscription
 When launching a new EC2 instance, users can subscribe to runtime alerts by adding an `Email` tag to the instance. User emails must be subscribed to the SNS topic, which can be done by either subscribing an entire domain or subscribing individual email addresses. Note that subscribing individual emails requires a one-time verification process.
