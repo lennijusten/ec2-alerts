@@ -86,7 +86,8 @@ def lambda_handler(event, context):
 
     if all_instance_warnings:
         admin_message = format_admin_email(all_instance_warnings)
-        send_email_via_ses(sender, admin_emails, subject, admin_message)
+        for recipient in admin_emails:
+            send_email_via_ses(sender, [recipient], subject, admin_message)
 
     return {
         'statusCode': 200,
