@@ -4,6 +4,8 @@ This AWS Lambda function sends runtime alerts for EC2 instances that have been r
 ## Configuration
 To set up the function, you must specify a `sender` email address from which the alerts will be sent. Additionally, you can set `admin_emails` to receive runtime alerts for all instances associated with the AWS account. If you want to exclude instances that are always on from runtime notifications, you can add a `AlwaysOn` tag with the value set to `True`.  
 
+When setting up the Lambda function, you need to ensure that the role used to execute the function has permission to `ec2:DescribeInstances`. If you use the default service role when setting up the Lambda function, you can add just the required permission by going to IAM → Roles → Select your Lambda function role → Add permissions → Create Inline policy → Add `DescribeInstances`.
+
 ## User Subscription
 When launching a new EC2 instance, users can subscribe to runtime alerts by adding an `Email` tag to the instance. User emails must be subscribed to the SNS topic, which can be done by either subscribing an entire domain or subscribing individual email addresses. Note that subscribing individual emails requires a one-time verification process.
 
